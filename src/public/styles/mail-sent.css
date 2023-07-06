@@ -1,0 +1,21 @@
+main {
+  display: flex;
+  justify-content: center;
+  background-color: var(--lightest-yellow);
+  padding: 0 40px;
+}
+
+.text {
+  margin: 80px 0;
+  text-align: center;
+}
+
+.text h2 {
+  margin-top: 0;
+  font-size: 32px;
+}
+
+.text p {
+  margin: 0;
+  font-size: 24px;
+}
