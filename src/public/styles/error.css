@@ -1,0 +1,22 @@
+main {
+  display: flex;
+  justify-content: center;
+  background-color: var(--lightest-yellow);
+  padding: 0 40px;
+}
+
+.error {
+  margin: 80px 0;
+  text-align: center;
+  color: var(--caution-color);
+}
+
+.error h2 {
+  margin-top: 0;
+  font-size: 32px;
+}
+
+.error p {
+  margin: 0;
+  font-size: 24px;
+}

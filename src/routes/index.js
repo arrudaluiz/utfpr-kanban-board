@@ -29,7 +29,7 @@ router.get('/techs', (req, res) => {
   res.render('techs', templateObj(template.techs));
 });
 
-router.post('/send-email', async (req, res) => {
+router.post('/send-email', async (req, res, next) => {
   try {
     const { name, email, subject, message } = req.body;
     const text = `Nome: ${name}\r\nE-mail: ${email}\r\nAssunto: ${subject}\r\nMensagem: ${message}`;
@@ -43,7 +43,6 @@ router.post('/send-email', async (req, res) => {
 
     res.render('mail-sent', templateObj);
   } catch (error) {
-    console.error('Error sending email:', error);
     next(error);
   }
 });
