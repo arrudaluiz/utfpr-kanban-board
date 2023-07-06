@@ -1,27 +1,31 @@
 import express from 'express';
 
-import { main, index } from '../templates/index.js';
+import template from '../templates/index.js';
 
 const router = express.Router();
 
+const templateObj = (obj) => {
+  return { ...template.index, ...obj };
+};
+
 router.get('/', (req, res) => {
-  res.render('index', { ...main, ...index });
+  res.render('login', templateObj(template.login));
 });
 
 router.get('/author', (req, res) => {
-  res.render('author');
+  res.render('author', templateObj(template.author));
 });
 
 router.get('/contact', (req, res) => {
-  res.render('contact');
+  res.render('contact', templateObj(template.contact));
 });
 
 router.get('/project', (req, res) => {
-  res.render('project');
+  res.render('project', templateObj(template.project));
 });
 
 router.get('/techs', (req, res) => {
-  res.render('techs');
+  res.render('techs', templateObj(template.techs));
 });
 
 export default router;

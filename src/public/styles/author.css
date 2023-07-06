@@ -1,0 +1,16 @@
+main {
+  display: flex;
+  justify-content: flex-start;
+  background-color: var(--lightest-yellow);
+  padding: 0 40px;
+}
+
+.text {
+  margin: 40px 0;
+  width: 38vw;
+}
+
+.text p {
+  font-size: 18px;
+  margin-top: 0;
+}
