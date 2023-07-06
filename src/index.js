@@ -33,14 +33,26 @@ app.use((req, res, next) => {
 });
 
 app.use((error, req, res, next) => {
-  console.error(error.stack);
   const templateObj = {
     ...template.index,
-    title: 'Erro na solicitação',
-    message:
-      'Não conseguimos realizar sua solicitação. Tente novamente mais tarde.'
+    title: '',
+    message: ''
   };
-  res.status(500).render('error', templateObj);
+  switch (error.status) {
+    case 400:
+      templateObj.title = 'Formulário com dados inválidos';
+      templateObj.message =
+        'Por favor, retorne ao formulário e preencha corretamente.';
+      break;
+
+    default:
+      templateObj.title = 'Erro na solicitação';
+      templateObj.message =
+        'Não conseguimos realizar sua solicitação. Tente novamente mais tarde.';
+      break;
+  }
+  console.error(error);
+  res.render('error', templateObj);
 });
 
 app.listen(PORT, () => {

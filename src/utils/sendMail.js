@@ -15,7 +15,7 @@ export default async function (from, subject, text) {
   return new Promise((resolve, reject) => {
     transporter.sendMail(mailOptions, function (error, info) {
       if (error) {
-        reject(error);
+        reject({...error, status: 500});
       } else {
         resolve(info);
       }
